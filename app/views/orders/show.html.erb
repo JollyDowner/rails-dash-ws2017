@@ -4,16 +4,19 @@ This is an order.
 
 <p>
   <strong>Customer:</strong>
-  <%= @order.customer %>
+  <%= @order.customer.name %>
+</p>
+<p>
+  <strong>Order:</strong>
 </p>
 
 
 <table>
   <thead>
     <tr>
-      <th>Order</th>
-      <th ></th>
-      <th ></th>
+      <th>Amount</th>
+      <th >Species</th>
+      <th >Price</th>
       <th ></th>
     </tr>
   </thead>
@@ -27,11 +30,12 @@ This is an order.
          #we will change this tomorrow morning:
          %>
         <td><%= line_item.pumpkin.species %></td>
-        <td>preis...</td>
+        <td><%=line_item.pumpkin.price%>.</td>
         <td></td>
       </tr>
     <% end %>
-  </tbody>
+      
+      <td>Total: <%=@order.compute_total%></td> </tbody>
 </table>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

@@ -5,5 +5,31 @@
   <%= @customer.name %>
 </p>
 
+<table>
+    <th>
+
+       <tr>Orders</tr> 
+    </th>
+
+            <tbody>
+            <tr>
+
+                 <% @customer.orders.each do |order|%>
+                <tr>
+                    <td> ID: <%=order.id%></td>
+                    <td>Created at: <%=order.created_at%></td>
+                  <%end%>  
+                </tr>
+                <tr>
+                <td>Total amount: </td>
+                <td>
+                    <%=@customer.compute_all_orders%>
+                </td>
+                
+                
+                </tr>
+        </tbody>
+</table>
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
